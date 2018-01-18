@@ -30,29 +30,30 @@
     <ion-input type="password" clearInput></ion-input>
   </ion-item>
 </ion-content>-->
-<ion-header>
-
+<!--<ion-header>
   <ion-navbar>
     <ion-title>Item</ion-title>
   </ion-navbar>
-
-</ion-header>
+</ion-header>-->
 
 
 <ion-content>
-
   <ion-list>
+      <ion-item no-lines ></ion-item>
+      <ion-item no-lines ></ion-item>
+      <ion-item no-lines ></ion-item>
       <ion-item>
-        <ion-icon name="ios-person" item-start md="md-person" padding-top></ion-icon>
-        <ion-label floating>Airplane Mode</ion-label>
+        <ion-icon name="person" item-start md="md-person" padding-top></ion-icon>
+        <ion-label floating>Username</ion-label>
         <ion-input></ion-input>
       </ion-item>
-      <ion-item>
-        <ion-icon name="ios-lock" item-start md="md-lock" padding-top></ion-icon>
-        <ion-label floating>Airplane Mode</ion-label>
-        <ion-input></ion-input>
+      <ion-item class="login-password">
+        <ion-icon name="lock" item-start md="md-lock" padding-top></ion-icon>
+        <ion-label floating>Password</ion-label>
+        <ion-input type="password"></ion-input>
+      </ion-item>
+      <ion-item no-lines >
+          <button ion-button full class="login-in-button" >Login in</button>
       </ion-item>
   </ion-list>
-
-
 </ion-content>
