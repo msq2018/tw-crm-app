@@ -1,6 +1,34 @@
 page-login {
-  .login-blank-margin{
-    margin-top: 30%;
+  .login-page-content{
+    background-size: 100%,100%;
+    background-image: url("../../assets/imgs/login-page-bg.jpg");
+  }
+  .login-page-content .login-img-logo{
+    padding-top: 25%;
+    padding-bottom: 50px;
+    width: 100%;
+    text-align: center;
+    ion-img{
+      background: none;
+    }
+  }
+  .login-page-content .login-form {
+    color: white;
+  }
+  .login-page-content{
+    .login-form *{
+      color: #fff!important;
+    }
+    ion-item.item-block:first-child{
+      border-top: 0 !important;
+    }
+    ion-item{
+      background-color: transparent;
+      ion-icon{
+        position: relative;
+        top: 8px;
+      }
+    }
   }
   .login-in-button{
     margin-top: 15px;
