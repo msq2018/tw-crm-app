@@ -1,21 +1,8 @@
 page-login {
   .login-page-content{
+    overflow: hidden;
     background-size: 100%,100%;
     background-image: url("../../assets/imgs/login-page-bg.jpg");
-  }
-  .login-page-content .login-img-logo{
-    padding-top: 25%;
-    padding-bottom: 50px;
-    width: 100%;
-    text-align: center;
-    ion-img{
-      background: none;
-    }
-  }
-  .login-page-content .login-form {
-    color: white;
-  }
-  .login-page-content{
     .login-form *{
       color: #fff!important;
     }
@@ -29,7 +16,17 @@ page-login {
         top: 8px;
       }
     }
+    .login-img-logo {
+      padding-top: 15%;
+      padding-bottom: 50px;
+      width: 100%;
+      text-align: center;
+      ion-img {
+        background: none;
+      }
+    }
   }
+
   .login-in-button{
     margin-top: 15px;
     height: 3.6rem !important;
