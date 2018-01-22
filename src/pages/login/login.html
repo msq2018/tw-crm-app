@@ -14,17 +14,16 @@
         <ion-list>
             <ion-item>
                 <ion-icon name="person" item-start md="md-person" padding-top></ion-icon>
-                <ion-label floating>Username</ion-label>
-                <ion-input></ion-input>
+                <ion-label floating>{{"Username"|translate}}</ion-label>
+                <ion-input id="username" name="username"  [(ngModel)] = "username"></ion-input>
             </ion-item>
             <ion-item class="login-password">
                 <ion-icon name="lock" item-start md="md-lock" padding-top></ion-icon>
-                <ion-label floating>Password</ion-label>
-                <ion-input type="password" ></ion-input>
+                <ion-label floating>{{"Password" | translate}}</ion-label>
+                <ion-input type="password" id="password" name="password"  [(ngModel)] = "password"></ion-input>
             </ion-item>
             <ion-item no-lines >
-                <ion-title>{{ 'LOGIN.login-in' | translate }}</ion-title>
-                <button ion-button full class="login-in-button">{{ 'Login in' | translate }}</button>
+                <button ion-button full class="login-in-button" (click)="onClickLoginButton()">{{ 'Login in' | translate }}</button>
             </ion-item>
         </ion-list>
     </form>
