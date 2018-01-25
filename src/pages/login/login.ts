@@ -1,8 +1,10 @@
 import { Component } from '@angular/core';
-import {NavController, NavParams ,ToastController} from 'ionic-angular';
+import {NavController, NavParams} from 'ionic-angular';
 import { TranslateService } from '@ngx-translate/core';
-import {HomePage} from "../home/home";
-import {MyApp} from "../../app/app.component";
+import { HomePage } from "../home/home";
+import { FormControl } from "@angular/forms";
+import { HttpClient } from "@angular/common/http";
+import { HelperService } from "../../services/helper.service";
 
 
 
@@ -27,9 +29,13 @@ export class LoginPage{
    */
   readonly password:string;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams,public translate:TranslateService,private toastCtrl: ToastController) {
-
-  }
+  constructor(
+      public navCtrl: NavController,
+      public navParams: NavParams,
+      public translate:TranslateService,
+      private helper:HelperService,
+      private http:HttpClient
+  ) {}
 
 
   onClickLoginButton(){
@@ -42,22 +48,21 @@ export class LoginPage{
 
 
   private validation() {
+    let a ;
     if (!this.username || !this.password){
-      this.message("Password and username can't be empty");
+      this.helper.message(this.helper.trans("Password and username can't be empty"));
       return false;
     }
-    return true;
+
+    this.http.get('http://msq.blog2.website/api/users/1').subscribe(data => {
+      // Read the result field from the JSON response.
+      console.log(2);
+      console.log(data);
+    });
+    return false;
   }
 
-  protected message(message:string,duration?:number = 3000,postion?:string = 'bottom'){
-    let _this = this
-    let toast = this.toastCtrl.create({
-      message: _this.translate.get(message).value,
-      duration: duration,
-      position: postion
-    });
-    toast.present();
-  }
+
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad LoginPage');
