@@ -34,8 +34,10 @@ export class HelperService{
         if (value){
             this.translate.set(key,value)
         }
-        let getValue = this.translate.get(key).value;
-        return getValue;
+        if (!this.translate.get(key)){
+            return;
+        }
+        return this.translate.get(key).value;
     }
 
 

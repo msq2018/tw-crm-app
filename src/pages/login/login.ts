@@ -2,9 +2,10 @@ import { Component } from '@angular/core';
 import {NavController, NavParams} from 'ionic-angular';
 import { TranslateService } from '@ngx-translate/core';
 import { HomePage } from "../home/home";
-import { FormControl } from "@angular/forms";
 import { HttpClient } from "@angular/common/http";
 import { HelperService } from "../../services/helper.service";
+import {HttpHeaders} from "@angular/common/http";
+import {FormControl} from "@angular/forms";
 
 
 
@@ -29,6 +30,8 @@ export class LoginPage{
    */
   readonly password:string;
 
+  private result = "abc";
+
   constructor(
       public navCtrl: NavController,
       public navParams: NavParams,
@@ -42,24 +45,25 @@ export class LoginPage{
     if (!this.validation()){
       return false;
     }
+
     this.navCtrl.push(HomePage);
   }
 
 
 
   private validation() {
-    let a ;
     if (!this.username || !this.password){
       this.helper.message(this.helper.trans("Password and username can't be empty"));
       return false;
     }
+    /*let body = "username="+this.username+"&password="+this.password;
+    let login = this.http.post('http://msq.blog2.website/api/users', body,{
+          headers: new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded'),
+        }).subscribe(data=>{
+          this.result = data;
+    });*/
+    return true;
 
-    this.http.get('http://msq.blog2.website/api/users/1').subscribe(data => {
-      // Read the result field from the JSON response.
-      console.log(2);
-      console.log(data);
-    });
-    return false;
   }
 
 
