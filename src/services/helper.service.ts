@@ -30,7 +30,7 @@ export class HelperService{
      * @param key
      * @returns {Observable<string|any>}
      */
-    public trans(key:string,value?:string,lang:string = 'en'){
+    public trans(key:string,value?:string){
         if (value){
             this.translate.set(key,value)
         }
