@@ -41,7 +41,7 @@ export class HttpService {
     public waitResult(request:HttpClient,loading?:boolean){
 
         request.toPromise().then(function (response) {
-
+            console.log(response);
         })
     }
     /**
