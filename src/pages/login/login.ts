@@ -39,36 +39,31 @@ export class LoginPage{
   ) {}
 
 
-  onClickLoginButton(){
-    if (!this.validation()){
-      return false;
-    }
-
-    this.navCtrl.push(HomePage);
+ public onClickLoginButton(){
+    this.initValidation();
   }
 
 
 
-  private validation() {
-    if (!this.username || !this.password){
-      this.helper.message(this.helper.trans("Password and username can't be empty"));
-      return false;
+  private initValidation() {
+    try{
+      if (!this.username || !this.password){
+        throw new Error(this.helper.trans("Password and username can't be empty."));
+      }
+      let request = this.http.post("api/users",{username:this.username,password:this.password});
+      request.toPromise().then((response:any)=>{
+          if (response.status == 0){
+            throw new Error(this.helper.trans("Incorrect username or password."));
+          }else if (response.status == 1){
+            this.navCtrl.push(HomePage);
+          }
+      }).catch(e=>{
+        this.helper.message(e.message);
+      })
+    }catch (e){
+      this.helper.message(e.message);
     }
-    let request = this.http.post("api/users",{username:this.username,password:this.password});
-    console.log(this.http.waitResult(request))
-    /*let login = this.http.post('http://msq.blog2.website/api/users', body,{
-          headers: new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded'),
-        }).toPromise().then(data=>{
-          this.result = data;
-    });*/
-    //console.log(this.result);
-    /*let _this = this;
-    setTimeout(function () {
-      console.log(_this.result)
-    },5000)*/
-    return false;
   }
-
 
 
   ionViewDidLoad() {

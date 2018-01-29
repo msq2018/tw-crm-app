@@ -1,3 +1,7 @@
 {
-  "Login in":"登入"
+  "Login in":"登入",
+  "Username":"用戶名",
+  "Password":"密碼",
+  "Password and username can't be empty.":"用戶名密碼不可為空。",
+  "Incorrect username or password.":"用戶名密碼錯誤。"
 }

@@ -9,7 +9,7 @@ export class HttpService {
      * Base Url
      * @type {string}
      */
-    static baseUrl = "http://msq.blog2.website/";
+    public baseUrl;
 
     public loading:boolean = true;
 
@@ -18,6 +18,7 @@ export class HttpService {
     constructor(
         private http:HttpClient
     ){
+        this.baseUrl = "http://tw.onepp.top/";
         this.postOptions = {
             headers: new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded')
         }
@@ -34,15 +35,13 @@ export class HttpService {
     public post(route:string,body:Object,options?:Object){
         let url = this.getRequestUrl(route);
         body = this.toStringBody(body);
-        options = options?this.mergeJson(this.postOptions,options):this.postOptions;
+        if (options){
+            options = this.mergeJson(this.postOptions,options);
+        }else{
+            options = this.postOptions;
+        }
+
         return this.http.post(url,body,options);
-    }
-
-    public waitResult(request:HttpClient,loading?:boolean){
-
-        request.toPromise().then(function (response) {
-            console.log(response);
-        })
     }
     /**
      * Get request url according to base url
@@ -50,7 +49,7 @@ export class HttpService {
      * @returns {string}
      */
     public getRequestUrl(route:string){
-        return HttpService.baseUrl+route;
+        return this.baseUrl+route;
     }
 
     /**
@@ -58,7 +57,7 @@ export class HttpService {
      * @param body
      * @returns {string}
      */
-    public toStringBody(body:JSON){
+    public toStringBody(body:Object){
         let bodyString = "",
             loopTimes = 0,
             bodySize = Object.keys(body).length;
@@ -75,7 +74,7 @@ export class HttpService {
      * @param optionsArray
      * @returns {{}}
      */
-    public mergeJson(...jsonArray:Object){
+    public mergeJson(...jsonArray:Object[]){
         let options = {};
         for(let option of jsonArray ){
             for (let key in option){
@@ -85,9 +84,7 @@ export class HttpService {
         return options;
     }
 
-    public loadingAnimation(){
 
-    }
 
 
 }

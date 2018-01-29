@@ -2,5 +2,6 @@
   "Login in":"Login in",
   "Username":"Username",
   "Password":"Password",
-  "Password and username can't be empty":"Password and username can't be empty"
+  "Password and username can't be empty.":"Password and username can't be empty.",
+  "Incorrect username or password.":"Incorrect username or password."
 }

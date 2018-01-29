@@ -30,15 +30,14 @@ export class HelperService{
      * @param key
      * @returns {Observable<string|any>}
      */
-    public trans(key:string,value?:string){
-        if (value){
-            this.translate.set(key,value)
-        }
-        if (!this.translate.get(key)){
-            return;
-        }
-        return this.translate.get(key).value;
+    public trans(key:string){
+        return this.translate.instant(key);
     }
+
+    public translateService(){
+        return this.translate;
+    }
+
 
 
 }

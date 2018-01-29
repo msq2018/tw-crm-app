@@ -5,14 +5,21 @@ import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
-
+/**
+ * Pages
+ */
 import { MyApp } from './app.component';
 import { LoginPage} from '../pages/login/login';
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
-
+/**
+ * Native plugs
+ */
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+/**
+ * Service
+ */
 import { HelperService } from "../services/helper.service";
 import { HttpService } from "../services/http.service";
 

@@ -43,7 +43,7 @@ export class MyApp {
   initializeTranslate(){
     // Set the default language for translation strings, and the current language.
     this.translate.setDefaultLang('en');
-    this.translate.use('en');
+    this.translate.use('zh-tw');
     /*if (this.translate.getBrowserLang() !== undefined) {
      this.translate.use(this.translate.getBrowserLang());
      } else {
